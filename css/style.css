@@ -151,7 +151,9 @@ nav {
     list-style: none; }
     nav ul li {
       margin-bottom: 14px;
-      position: relative; }
+      position: relative;
+      opacity: 0;
+      visibility: hidden; }
       nav ul li .menu-circle {
         position: absolute;
         font-size: 8px;
@@ -287,6 +289,7 @@ nav {
     display: block; }
 
 .work-item .project-text {
+  width: 90%;
   padding: 30px 0px 0px 0px; }
   .work-item .project-text p {
     color: #333;
@@ -437,3 +440,44 @@ nav {
   font-size: 22px;
   font-family: "franklin-gothic-urw", serif;
   margin-bottom: 20px; }
+
+.menu-btn {
+  width: 100px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  position: relative;
+  border-radius: 2px;
+  opacity: 0.4;
+  transition: opacity 0.3s; }
+  .menu-btn .menu-text {
+    letter-spacing: 1px;
+    font-size: 14px;
+    text-transform: uppercase;
+    height: 32px;
+    line-height: 32px;
+    position: relative;
+    top: 2px; }
+  .menu-btn .menu-icon {
+    width: 14px;
+    height: 14px;
+    top: 7px;
+    display: inline-block;
+    position: absolute;
+    right: 38px;
+    line-height: 0px; }
+    .menu-btn .menu-icon .menu-line {
+      height: 1px;
+      width: 100%;
+      background: #333;
+      display: inline-block;
+      position: relative; }
+    .menu-btn .menu-icon .top-line, .menu-btn .menu-icon .bottom-line {
+      -ms-transform-origin: left center;
+      -webkit-transform-origin: left center;
+      transform-origin: left center; }
+  .menu-btn:hover {
+    cursor: pointer;
+    opacity: 1; }
+
+.active-menu-btn {
+  opacity: 1; }
