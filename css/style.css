@@ -492,9 +492,6 @@ nav {
     cursor: pointer;
     opacity: 1; }
 
-.active-menu-btn {
-  opacity: 1; }
-
 .external-link-heading, .info-heading {
   font-family: "franklin-gothic-urw", serif;
   font-size: 22px;

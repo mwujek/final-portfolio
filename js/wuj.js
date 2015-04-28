@@ -1,9 +1,5 @@
 /*jshint devel:true */
 
-$(function(){
-  TweenLite.to('#top',0,{drawSVG:"0 14"});
-  TweenLite.to('#bottom',0,{drawSVG:"0 14"});
-});  
 
 
 	function bounceEl(el, moveDirection, distance, aLength, callback){
@@ -451,32 +447,47 @@ var delayDuration = 200;
 var bezierCurve = [0.89,0.06,0.69,0.97];
 var navListItems = $('nav ul li');
 
+
+
+var topMenu = $('#top');
+var midMenu = $('#mid');
+var botMenu = $('#bottom');
+
+$(function(){
+  TweenLite.to('#top',0,{drawSVG:"0 14"});
+  TweenLite.to('#bottom',0,{drawSVG:"0 14"});
+});
+
+$("#tweenBox").click(function(){
+  if(!tween.isActive()){
+    //only reverse the direction if the tween is not active
+    tween.reversed(!tween.reversed())
+  }
+})
+
+var moveTop = TweenLite.to('#top',0.8,{drawSVG:"27 94%",delay:0.1, ease: Back.easeInOut.config(1.5)}).reverse();;
+var moveMid = TweenLite.to('#mid',0.5,{opacity: 1, drawSVG:"100% 100%", ease: Back.easeInOut.config(1.5)}).reverse();;
+var moveBot = TweenLite.to('#bottom',0.8,{drawSVG:"27 94%",delay:0.3, ease: Back.easeInOut.config(1.5)}).reverse();
+
 function animateToCross(){
 	menuBtn.toggleClass('active-menu-btn');
-
-	TweenLite.to('#top',0.8,{drawSVG:"27 94%",delay:0.1});
-  TweenLite.to('#mid',0.5,{opacity: 1, drawSVG:"100% 100%",delay:0});
-  TweenLite.to('#bottom',0.8,{drawSVG:"27 94%",delay:0.3});
+	if(!moveTop.isActive()){
+		moveTop.reversed(!moveTop.reversed())
+		moveMid.reversed(!moveMid.reversed())
+		moveBot.reversed(!moveBot.reversed())
+	}
   navListItems.velocity({opacity:1},{duration: tweenDuration, visibility: 'visible'});
-
-	// menuIcon.velocity({rotateZ:'90deg', top:10},{easing: bezierCurve, duration:tweenDuration,
-	// 	complete: function(){
-	// 		midLine.velocity({left:-30,opacity:0},{duration:tweenDuration, delay:delayDuration,
-	// 			complete:function(){
-	// 				menuIcon.velocity({top:12},{duration:tweenDuration, delay: delayDuration});
-	// 				topLine.velocity({rotateZ:'45deg'},{duration:tweenDuration, delay:delayDuration});
-	// 				bottomLine.velocity({rotateZ:'-45deg'},{duration:tweenDuration, delay:delayDuration});
-	// 			}
-	// 		});
-	// 	}
-	// });
 }
 
 function animateToBurger(){
 	menuBtn.toggleClass('active-menu-btn');
-  TweenLite.to('#top',0.8,{drawSVG:"0 14"});
-  TweenLite.to('#mid',0.8,{opacity: 1, drawSVG:"0% 100%",delay:0.3});
-  TweenLite.to('#bottom',0.8,{drawSVG:"0 14"});
+  if(!moveTop.isActive()){
+		moveTop.reversed(!moveTop.reversed())
+		setTimeout(function(){
+			moveMid.reversed(!moveMid.reversed())
+		},300);
+		moveBot.reversed(!moveBot.reversed())
+	}
 
 
 
