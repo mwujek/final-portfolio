@@ -34,7 +34,7 @@
 
 </head>
 <body>
-<canvas id="bg-image"></canvas>
+	<canvas id="bg-image"></canvas>
 	<div class="row col-container">
 		<nav class="col">
 			<h1>Matt Wujek</h1>
@@ -57,161 +57,204 @@
 			<div class="work-list">
 				<div class="middle-col"></div>
 				<div id="ajax-content">
-				<div id="container">
-					<div class="work-item" id="everlane">
-					<div class="standard-btn go-back-btn"><span class="fa fa-angle-left back-icon"></span>Back</div>
-						<div class="work-visible-section">
-							<h1>Everlane</h1>
-							<h2>Prototyping, Mobile, Web</h2>
-							<span class="line-break"></span>
-						</div> <!-- end of visible section -->
-						<div class="work-hidden-section">
-							<div class="media-container" id="everlane-media">
-								<div class="video-container"></div>
-							</div>
-							<div class="media-info row">
-								<ul class="col thumbnail-list" id="everlane-list">
-									<li text-value="Image 1" class="img-thumbnail active-thumbnail"></li>
-									<li text-value="Image 2" class="img-thumbnail"></li>
-									<li text-value="Image 3" class="img-thumbnail"></li>
-									<li text-value="Image 4" class="img-thumbnail"></li>
-									<li text-value="Image 5" class="img-thumbnail"></li>
-									<li class="img-thumbnail-hover">Hover Title</li>
-								</ul> <!-- end of col -->
-								<h2 class="col image-title">Prototype Title</h2> <!-- end of col -->
-							</div> <!-- end of media info -->
+					<div id="container">
+						<div class="work-item" id="everlane">
+							<div class="standard-btn go-back-btn"><span class="fa fa-angle-left back-icon"></span>Back</div>
+							<div class="work-visible-section">
+								<h1>Everlane</h1>
+								<h2>Prototyping, Mobile, Web</h2>
+								<span class="line-break"></span>
+							</div> <!-- end of visible section -->
+							<div class="work-hidden-section">
+							<div class="work-ajax-container">
+								<div class="media-container row" id="everlane-media">
+									<div class="video-container col"><iframe width="420" height="315" src="https://www.youtube.com/embed/fr4ySKIgtsQ" frameborder="0" allowfullscreen></iframe></div>
+								</div>
+								<div class="media-info row">
+								<h2 class="image-title">Mobile App Opening Experience</h2>
+									<ul class="col thumbnail-list" id="everlane-list">
+										<li video-index="e1" text-value="Mobile App: Opening Experience" class="img-thumbnail active-thumbnail"></li>
+										<li video-index="e2" text-value="Mobile App: User Flow (Weather)" class="img-thumbnail"></li>
+										<li video-index="e3" text-value="Mobile App: Add to Cart" class="img-thumbnail"></li>
+										<li video-index="e4" text-value="Web Prototype: Mobile Checkout" class="img-thumbnail"></li>
+										<li video-index="e5" text-value="Web Prototype: Color Selection" class="img-thumbnail"></li>
+										<li class="img-thumbnail-hover">Everlane</li>
+									</ul> <!-- end of col -->
+									 <!-- end of col -->
+								</div> <!-- end of media info -->
 
-							<div class="project-text">
-								<p>He'll live. I asked to see you in order to clear the air. There are uh, some issues that could cause a misunderstanding between us and I think it's in our best interest to lay the cards on the table. My brother-in-law, moments before he was attacked, someone called to warn him. I believe that same person was protecting me.</p>
+								<div class="project-text">
+									<h1 class="external-link-heading">External Links</h1>
+									<ul class="work-btn-list col">
+										<li class="btn-li"><span class="btn-text">App Opening Experience</span><a target="_blank" href="https://www.linkedin.com/in/mattwujek"><span class="hidden-btn fa fa-external-link"></span></a></li>
+										<li class="btn-li"><span class="btn-text">App User Flow</span><a target="_blank" href="https://www.linkedin.com/in/mattwujek"><span class="hidden-btn fa fa-external-link"></span></a></li>
+										<li class="btn-cv"><span class="btn-text">Add to Cart</span><a target="_blank" href="http://cv.mattwujek.com/"><span class="hidden-btn fa fa-external-link"></span></a></li>
+										<li class="btn-cv"><span class="btn-text">Checkout (Mobile Web)</span><a target="_blank" href="http://cv.mattwujek.com/"><span class="hidden-btn fa fa-external-link"></span></a></li>
+										<li class="btn-cv"><span class="btn-text">Color Selection (Mobile Web)</span><a target="_blank" href="http://cv.mattwujek.com/"><span class="hidden-btn fa fa-external-link"></span></a></li>
+									</ul>
+									<h1 class="info-heading">Project Info</h1>
+									<p>In February 2015, I was hired as a contractor to assist the Everlane design team with their web and mobile products. The team is working on improving the current web experience and introducing new features that will commonly used in the new mobile app. I use modern prototyping tools like <a target="_blank" href="http://bohemiancoding.com/sketch/">Sketch</a> and <a target="_blank" href="http://framerjs.com/">Framer</a> to effectively communicate designed interactions to all stakeholders (designers, management, engineers, etc.) in each project. For web based projects, I build templates from scratch and add interactivity with javascript and animation libraries such as <a target="_blank" href="http://greensock.com/gsap">GSAP</a> and <a target="_blank" href="http://julian.com/research/velocity/">Velocity.js.</a></p>
 
-							</div>
-						</div> <!-- end of hidden section -->
-					</div> <!-- end of work item -->
+								</div>
+								</div> <!-- end of hidden section ajax container -->
+							</div> <!-- end of hidden section -->
+						</div> <!-- end of work item -->
 
 
-					<div class="work-item" id="scoot">
-					<div class="standard-btn go-back-btn"><span class="fa fa-angle-left back-icon"></span>Back</div>
-						<div class="work-visible-section">
-							
-							<h1>Scoot Networks</h1>
-							<h2>Prototyping, Mobile</h2>
-							<span class="line-break"></span>
-						</div> <!-- end of visible section -->
-						<div class="work-hidden-section">
-							<div class="media-container" id="scoot-media">
-								<div class="video-container"></div>
-							</div>
-							<div class="media-info row">
-								<ul class="col thumbnail-list" id="scoot-list">
-									<li text-value="Image 1" class="img-thumbnail active-thumbnail"></li>
-									<li text-value="Image 2" class="img-thumbnail"></li>
-									<li text-value="Image 3" class="img-thumbnail"></li>
-									<li text-value="Image 4" class="img-thumbnail"></li>
-									<li text-value="Image 5" class="img-thumbnail"></li>
-									<li class="img-thumbnail-hover">Hover Title</li>
-								</ul> <!-- end of col -->
-								<h2 class="col image-title">Prototype Title</h2> <!-- end of col -->
-							</div> <!-- end of media info -->
+						<div class="work-item" id="scoot">
+							<div class="standard-btn go-back-btn"><span class="fa fa-angle-left back-icon"></span>Back</div>
+							<div class="work-visible-section">
 
-							<div class="project-text">
-								<p>He'll live. I asked to see you in order to clear the air. There are uh, some issues that could cause a misunderstanding between us and I think it's in our best interest to lay the cards on the table. My brother-in-law, moments before he was attacked, someone called to warn him. I believe that same person was protecting me.</p>
+								<h1>Scoot Networks</h1>
+								<h2>Prototyping, Mobile</h2>
+								<span class="line-break"></span>
+							</div> <!-- end of visible section -->
+							<div class="work-hidden-section">
+							<div class="work-ajax-container">
+								<div class="media-container" id="scoot-media">
+									<div class="video-container">
+										<iframe width="420" height="315" src="https://www.youtube.com/embed/fr4ySKIgtsQ" frameborder="0" allowfullscreen></iframe>
+									</div>
+								</div>
+								<div class="media-info row">
+									<!-- <ul class="col thumbnail-list" id="scoot-list">
+										<li text-value="Image 1" class="img-thumbnail active-thumbnail"></li>
+										<li class="img-thumbnail-hover">Scoot Prototype</li>
+									</ul> -->
+									<h2 class="col image-title">Scoot Prototype</h2> <!-- end of col -->
+								</div> <!-- end of media info -->
+								<h1 class="external-link-heading">External Links</h1>
+									<ul class="work-btn-list col">
+										<li class="btn-li"><span class="btn-text">Scoot Prototype</span><a target="_blank" href="https://www.linkedin.com/in/mattwujek"><span class="hidden-btn fa fa-external-link"></span></a></li>
+										
+									</ul>
+								<h1 class="info-heading">Project Info</h1>
+								<div class="project-text">
+									<p>I am a huge fan of <a target="_blank" href="http://www.scootnetworks.com/">Scoot Networks</a>, a company that facilitates efficient and reliable transportation via shared, electric, smartphone-activated motorscooters. I have taken hundreds of scoot rides and I have had a blast zipping through San Francisco in zero-emission electric mopeds. Although I love the service, I have been disappointed with their mobile product because it falls short in terms of UX design. Along with the UX short-comings, I felt that with transportation platform is missing out on their incredible potential for utilizing ride data to enrich the user experience. Taking this into consideration, I recreated the application and added several features that make it easier for users to carry out essential tasks such as looking up parking info, viewing location data, and booking a reservation. After building a prototype, I sent it over to their team for further review. The prototype was warming accepted by the people at Scoot Networks and we’re currently discussing possibilities for new projects that can be incorporated into the Scoot mobile product.</p>
 
-							</div>
-						</div> <!-- end of hidden section -->
-					</div> <!-- end of work item -->
+								</div>
+								</div> <!-- end of hidden section ajax container -->
+							</div> <!-- end of hidden section -->
+						</div> <!-- end of work item -->
 
-					<div class="work-item" id="thesis">
-					<div class="standard-btn go-back-btn"><span class="fa fa-angle-left back-icon"></span>Back</div>
-						<div class="work-visible-section">
-							
-							<h1>Senior Thesis</h1>
-							<h2>Installation, Processing</h2>
-							<span class="line-break"></span>
-						</div> <!-- end of visible section -->
-						<div class="work-hidden-section">
-							<div class="media-container" id="thesis-media">
-								<div class="video-container"></div>
-							</div>
-							<div class="media-info row">
-								<ul class="col thumbnail-list" id="thesis-list">
-									<li text-value="Image 1" class="img-thumbnail active-thumbnail"></li>
-									<li text-value="Image 2" class="img-thumbnail"></li>
-									<li text-value="Image 3" class="img-thumbnail"></li>
-									<li text-value="Image 4" class="img-thumbnail"></li>
-									<li text-value="Image 5" class="img-thumbnail"></li>
-									<li class="img-thumbnail-hover">Hover Title</li>
-								</ul> <!-- end of col -->
-								<h2 class="col image-title">Prototype Title</h2> <!-- end of col -->
-							</div> <!-- end of media info -->
 
-							<div class="project-text">
-								<p>He'll live. I asked to see you in order to clear the air. There are uh, some issues that could cause a misunderstanding between us and I think it's in our best interest to lay the cards on the table. My brother-in-law, moments before he was attacked, someone called to warn him. I believe that same person was protecting me.</p>
+						<div class="work-item" id="revolver">
+							<div class="standard-btn go-back-btn"><span class="fa fa-angle-left back-icon"></span>Back</div>
+							<div class="work-visible-section">
+								<h1>Revolver Yoga</h1>
+								<h2>Web</h2>
+								<span class="line-break"></span>
+							</div> <!-- end of visible section -->
+							<div class="work-hidden-section">
+							<div class="work-ajax-container">
+								<div class="media-container" id="revolver-media">
+									<div class="video-container">
+										<iframe width="420" height="315" src="https://www.youtube.com/embed/fr4ySKIgtsQ" frameborder="0" allowfullscreen></iframe>
+									</div>
+								</div>
+								<div class="media-info row">
+									<h2 class="col image-title">Revolver Yoga Website</h2> <!-- end of col -->
+								</div> <!-- end of media info -->
 
-							</div>
-						</div> <!-- end of hidden section -->
-					</div> <!-- end of work item -->
+								<h1 class="external-link-heading">External Links</h1>
+									<ul class="work-btn-list col">
+										<li class="btn-li"><span class="btn-text">Revolver Yoga Website</span><a target="_blank" href="https://www.linkedin.com/in/mattwujek"><span class="hidden-btn fa fa-external-link"></span></a></li>
+										
+									</ul>
 
-					<div class="work-item" id="revolver">
-					<div class="standard-btn go-back-btn"><span class="fa fa-angle-left back-icon"></span>Back</div>
-						<div class="work-visible-section">
-							
-							<h1>Revolver Yoga</h1>
-							<h2>Web</h2>
-							<span class="line-break"></span>
-						</div> <!-- end of visible section -->
-						<div class="work-hidden-section">
-							<div class="media-container" id="revolver-media">
-								<div class="video-container"></div>
-							</div>
-							<div class="media-info row">
-								<ul class="col thumbnail-list" id="revolver-list">
-									<li text-value="Image 1" class="img-thumbnail active-thumbnail"></li>
-									<li text-value="Image 2" class="img-thumbnail"></li>
-									<li text-value="Image 3" class="img-thumbnail"></li>
-									<li text-value="Image 4" class="img-thumbnail"></li>
-									<li text-value="Image 5" class="img-thumbnail"></li>
-									<li class="img-thumbnail-hover">Hover Title</li>
-								</ul> <!-- end of col -->
-								<h2 class="col image-title">Prototype Title</h2> <!-- end of col -->
-							</div> <!-- end of media info -->
+								<h1 class="info-heading">Project Info</h1>
+								<div class="project-text">
+									<p>Revolver Yoga is an esteemed local business in my hometown, Walla Walla, WA. Owner and instructor, Courtney Morgan, asked me to design an elegant website that would ultimately increase online bookings through thoughtfully tailored UX design. Here’s what Courtney has to say about the site:</p>
+									<div class="quote-block">
 
-							<div class="project-text">
-								<p>He'll live. I asked to see you in order to clear the air. There are uh, some issues that could cause a misunderstanding between us and I think it's in our best interest to lay the cards on the table. My brother-in-law, moments before he was attacked, someone called to warn him. I believe that same person was protecting me.</p>
+<p class="quote">“What an absolute pleasure it has been to work with Matt and see the amazing website for my business come together quickly and without any stress (on my end, at least). It has been so easy to collaborate with him, to tell him my needs, ideas, vision, and how my clients need the site to function to get them into the door. Matt's ability to integrate not only a super functional blog interface but also, and most importantly, our external booking site for classes and workshops has made the transition from curiosity to client commitment so much simpler. His clean, edited, and stylish design aesthetic has proven time and again to impress potential clients and bring them into the studio.</p>
 
-							</div>
-						</div> <!-- end of hidden section -->
-					</div> <!-- end of work item -->
+<p class="quote">Working with Matt has been a match from day one, and I couldn't be happier. I highly recommend him to any of my friends, clients, or business connections who are looking for a designer who genuinely cares about his work; from the initial steps of creating the concept, communication, and ideal personalized functionality to a clear aesthetic that represents their branding. Matt will be my designer for as long as he will take on my projects!”</p>
+</div>
 
-					<div class="work-item" id="muni">
-					<div class="standard-btn go-back-btn"><span class="fa fa-angle-left back-icon"></span>Back</div>
-						<div class="work-visible-section">
-							
-							<h1>Muni Daily</h1>
-							<h2>Web, D3.js</h2>
-							<span class="line-break"></span>
-						</div> <!-- end of visible section -->
-						<div class="work-hidden-section">
-							<div class="media-container" id="muni-media">
-								<div class="video-container"></div>
-							</div>
-							<div class="media-info row">
-								<ul class="col thumbnail-list" id="muni-list">
-									<li text-value="Image 1" class="img-thumbnail active-thumbnail"></li>
-									<li text-value="Image 2" class="img-thumbnail"></li>
-									<li text-value="Image 3" class="img-thumbnail"></li>
-									<li text-value="Image 4" class="img-thumbnail"></li>
-									<li text-value="Image 5" class="img-thumbnail"></li>
-									<li class="img-thumbnail-hover">Hover Title</li>
-								</ul> <!-- end of col -->
-								<h2 class="col image-title">Prototype Title</h2> <!-- end of col -->
-							</div> <!-- end of media info -->
+								</div>
+								</div> <!-- end of hidden section ajax container -->
+							</div> <!-- end of hidden section -->
+						</div> <!-- end of work item -->
 
-							<div class="project-text">
-								<p>He'll live. I asked to see you in order to clear the air. There are uh, some issues that could cause a misunderstanding between us and I think it's in our best interest to lay the cards on the table. My brother-in-law, moments before he was attacked, someone called to warn him. I believe that same person was protecting me.</p>
+						<div class="work-item" id="muni">
+							<div class="standard-btn go-back-btn"><span class="fa fa-angle-left back-icon"></span>Back</div>
+							<div class="work-visible-section">
+								<h1>MuniDaily</h1>
+								<h2>Web, D3.js</h2>
+								<span class="line-break"></span>
+							</div> <!-- end of visible section -->
+							<div class="work-hidden-section">
+							<div class="work-ajax-container">
+								<div class="media-container" id="muni-media">
+									<div class="video-container">
+										<iframe width="420" height="315" src="https://www.youtube.com/embed/fr4ySKIgtsQ" frameborder="0" allowfullscreen></iframe>
+									</div>
+								</div>
+								<div class="media-info row">
+									<h2 class="col image-title">MuniDaily Website</h2> <!-- end of col -->
+								</div> <!-- end of media info -->
 
-							</div>
-						</div> <!-- end of hidden section -->
-					</div> <!-- end of work item -->
+								<h1 class="external-link-heading">External Links</h1>
+									<ul class="work-btn-list col">
+										<li class="btn-li"><span class="btn-text">MuniDaily Website</span><a target="_blank" href="https://www.linkedin.com/in/mattwujek"><span class="hidden-btn fa fa-external-link"></span></a></li>
+										
+									</ul>
+								<h1 class="info-heading">Project Info</h1>
+								<div class="project-text">
+									<p>He'll live. I asked to see you in order to clear the air. There are uh, some issues that could cause a misunderstanding between us and I think it's in our best interest to lay the cards on the table. My brother-in-law, moments before he was attacked, someone called to warn him. I believe that same person was protecting me.</p>
+
+								</div>
+								</div> <!-- end of hidden section ajax container -->
+							</div> <!-- end of hidden section -->
+						</div> <!-- end of work item -->
+
+						<div class="work-item" id="thesis">
+							<div class="standard-btn go-back-btn"><span class="fa fa-angle-left back-icon"></span>Back</div>
+							<div class="work-visible-section">
+
+								<h1>Misc. Projects</h1>
+								<h2>Prototyping, Paper.js, Processing</h2>
+								<span class="line-break"></span>
+							</div> <!-- end of visible section -->
+							<div class="work-hidden-section">
+							<div class="work-ajax-container">
+								<div class="media-container" id="thesis-media">
+									<div class="video-container">
+										<iframe width="420" height="315" src="https://www.youtube.com/embed/fr4ySKIgtsQ" frameborder="0" allowfullscreen></iframe>
+									</div>
+								</div>
+								<div class="media-info row">
+									<ul class="col thumbnail-list" id="thesis-list">
+										<li text-value="Color Wheel (Paper.js)" class="img-thumbnail active-thumbnail"></li>
+										<li text-value="Generative Arc (Processing)" class="img-thumbnail"></li>
+										<li text-value="Space Dodge (Processing)" class="img-thumbnail"></li>
+										<li text-value="Dynamic Logo (Paper.js)" class="img-thumbnail"></li>
+										<li text-value="Wuj Daily" class="img-thumbnail"></li>
+										<li text-value="Senior Thesis Prototype" class="img-thumbnail"></li>
+										<li class="img-thumbnail-hover">Misc.</li>
+									</ul> <!-- end of col -->
+									<h2 class="col image-title">Color Wheel</h2> <!-- end of col -->
+								</div> <!-- end of media info -->
+
+								<h1 class="external-link-heading">External Links</h1>
+									<ul class="work-btn-list col">
+										<li class="btn-li"><span class="btn-text">Color Wheel</span><a target="_blank" href="https://www.linkedin.com/in/mattwujek"><span class="hidden-btn fa fa-external-link"></span></a></li>
+										<li class="btn-li"><span class="btn-text">Generative Arc</span><a target="_blank" href="https://www.linkedin.com/in/mattwujek"><span class="hidden-btn fa fa-external-link"></span></a></li>
+										<li class="btn-cv"><span class="btn-text">Dynamic Logo</span><a target="_blank" href="http://cv.mattwujek.com/"><span class="hidden-btn fa fa-external-link"></span></a></li>
+										<li class="btn-cv"><span class="btn-text">Wuj Daily</span><a target="_blank" href="http://cv.mattwujek.com/"><span class="hidden-btn fa fa-external-link"></span></a></li>
+										<li class="btn-cv"><span class="btn-text">Thesis Prototype</span><a target="_blank" href="http://cv.mattwujek.com/"><span class="hidden-btn fa fa-external-link"></span></a></li>
+									</ul>
+								<h1 class="info-heading">Project Info</h1>
+								<div class="project-text">
+									<p>He'll live. I asked to see you in order to clear the air. There are uh, some issues that could cause a misunderstanding between us and I think it's in our best interest to lay the cards on the table. My brother-in-law, moments before he was attacked, someone called to warn him. I believe that same person was protecting me.</p>
+
+								</div>
+								</div> <!-- end of hidden section ajax container -->
+							</div> <!-- end of hidden section -->
+						</div> <!-- end of work item -->
+
+
 					</div> <!-- end of contaienr -->
 				</div><!--  end of ajax container -->
 			</div> <!-- end of work list -->

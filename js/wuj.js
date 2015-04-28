@@ -1,5 +1,11 @@
 /*jshint devel:true */
 
+$(function(){
+  TweenLite.to('#top',0,{drawSVG:"0 14"});
+  TweenLite.to('#bottom',0,{drawSVG:"0 14"});
+});  
+
+
 	function bounceEl(el, moveDirection, distance, aLength, callback){
 			var argLength = arguments.length;
 			if (moveDirection === "top"){
@@ -45,6 +51,7 @@ $(document).ajaxSuccess(function(a,b,obj) {
 		hiddenSection.each(function(){
 			var section = $(this);
 			var mediaContainer = section.find('.media-container');
+			var video = mediaContainer.find('.video-container iframe');
 			var thumbnailList = section.find('.thumbnail-list');
 			var thumbnail = thumbnailList.find('li.img-thumbnail');
 			var imageTitle = section.find('.image-title');
@@ -66,7 +73,7 @@ $(document).ajaxSuccess(function(a,b,obj) {
 					});
 					el.siblings('.work-hidden-section').velocity({
 						opacity:1,
-						height:530
+						height:830
 					},{
 						duration:500,
 						delay: 1200,
@@ -93,11 +100,12 @@ $(document).ajaxSuccess(function(a,b,obj) {
 			thumbnail.each(function(){
 				var el = $(this);
 				var hoverData = el.attr('text-value');
-				var imageData = el.css('background-image');
-				console.log(imageData);
+				var videoData = el.attr('video-index');
+				//console.log(imageData);
 				el.hover(function() {
 					if ( $(this).hasClass('active-thumbnail') ){
-						imageTitle.velocity({left:10},{duration:100, loop:1});
+						imageTitle.velocity({left:14},{duration:100, loop:1});
+						//console.log();
 					} else {
 						if ( thumbnailList.data('animating') === true){
 							imageTitleHover.velocity("stop", true).velocity('reverse',{ duration:0});
@@ -132,6 +140,37 @@ $(document).ajaxSuccess(function(a,b,obj) {
 						}
 					}
 				});
+
+//video data
+
+var videoString;
+switch (videoData) {
+						case 'e1':
+							videoString = "https://www.youtube.com/embed/obox5-IxFH8?rel=0&amp;showinfo=0";
+							break;
+						case 'e2':
+							videoString = "https://www.youtube.com/embed/a-XPAfXo1Cs?rel=0&amp;showinfo=0";
+							break;
+						case 'e3':
+							videoString = "https://www.youtube.com/embed/P0-ZKaWVYSk?rel=0&amp";
+							break;
+						case 'e4':
+							videoString = "https://www.youtube.com/watch?v=a-XPAfXo1Cs";
+							break;
+						case 'e5':
+							videoString = "https://www.youtube.com/watch?v=KXUiiMe-2C0";
+							break;
+						case 's1':
+							videoString = "asdasd";
+							break;
+						case 's2':
+							videoString = "asdasd";
+							break;
+						case 's3':
+							videoString = "asdasd";
+							break;
+						default:
+					}
 el.click(function() {
 	if ( $(this).hasClass('active-thumbnail') ){
 	} else {
@@ -146,9 +185,9 @@ el.click(function() {
 			}).velocity({opacity:1},{duration:300,delay:800});
 			},
 			complete: function(){
-				mediaContainer.css('background-image',imageData);
+				video.attr('src',videoString);
 			}
-		}).velocity({opacity:1},{duration:300, delay:300});
+		}).velocity({opacity:1},{duration:300, delay:1000});
 
 	}
 
@@ -157,6 +196,38 @@ el.click(function() {
 	}); // end each hidden section
 
 
+
+// external links
+		$('.work-btn-list .btn-text').each(function(){
+			var hiddenEl = $(this).parent().find('.hidden-btn');
+			var hiddenWidth = hiddenEl.outerWidth();
+			var el = $(this);
+			el.data({active:false});
+			hiddenEl.velocity({width:0, borderColor: '#fff', padding:0},{duration:0});
+			el.click(function() {
+				var attribute = $(this).parent().attr('class');
+				if (el.data('active') === false){
+
+					if(attribute === 'btn-email'){
+						hiddenEl.velocity({width:200, borderColor: '#ccc', paddingRight:20,paddingLeft:20},{duration:500});
+						$('.email-address').typed({
+							strings: ["mattwujek@gmail.com"],
+							contentType: 'html',
+							typeSpeed: 50,
+							showCursor: false
+						});
+					} else {
+						bounceEl($(this),'padding-right',25,100);
+						hiddenEl.velocity({width:hiddenWidth, borderColor: '#ccc', paddingRight:20,paddingLeft:20},{duration:500});
+					}
+					el.data({active:true});
+				} else{
+					console.log('shrink');
+					hiddenEl.velocity({width:0, borderColor: '#fff', paddingRight:0,paddingLeft:0},{duration:500});
+					el.data({active:false});
+				}
+			});
+		});
 // bio section
 // bio
 		//var bioBtns = $();
@@ -258,17 +329,15 @@ function sectionAnimation(state, href, level){
 		var arrowBottom = $('.arrow-line-bottom');
 
 		if ( state === 'empty'){
-			//console.log('only at BEGIN');
-			loadingCircle.velocity({scale:0},{duration:0});
+		  animateToBurger();
+		  loadingCircle.velocity({scale:0},{duration:0});
+		  middleCol.velocity({scaleY:0},{duration:0});
 			// load ajax stuffs
 		  $('#container').remove(); // Remove old content
-		  $('#ajax-content').load(href + ' #container', function(){
-		  	//delegateStuff(href);
-		  }); // New content
-		  line.velocity({width:'90%'},{easing:'ease-out',duration:500,
-		  	begin: function(){
-		  		middleCol.velocity({scaleY:0},{duration:0});
-		  	},
+		  $('#ajax-content').load(href + ' #container');
+		  setTimeout(function(){
+		  	console.log('only at BEGIN');
+		  	line.velocity({width:'90%'},{easing:'ease-out',duration:500, delay: 500,
 		  	complete: function(){
 		  		arrowTop.velocity({rotateZ: "45deg"},{duration:300});
 		  		arrowBottom.velocity({rotateZ: "-45deg"},{duration:300});
@@ -281,6 +350,8 @@ function sectionAnimation(state, href, level){
 		  	}
 		  });
 
+		  },500);
+
 		  ajaxContent.data({state: href});
 
 
@@ -288,6 +359,7 @@ function sectionAnimation(state, href, level){
 			ajaxContent.velocity({opacity:0},{duration:500, visibility: 'hidden',
 				// reset circle
 				begin: function(){
+					animateToBurger();
 					loadingCircle.velocity({scale:0},{duration:300,
 						complete: function(){
 							loadingCircleContent.velocity({top:12, opacity:1},{duration:0});
@@ -338,6 +410,7 @@ function sectionAnimation(state, href, level){
 		} else {  // index.html only
 			//console.log(ajaxContent.data());
 			ajaxContent.data({state:'empty', active:false});
+			animateToBurger();
 			ajaxContent.velocity({opacity:0},{duration:500, visibility: 'hidden',
 				complete: function(){
 					middleCol.velocity({width:1},{duration: 300, delay:200})
@@ -381,42 +454,33 @@ var navListItems = $('nav ul li');
 function animateToCross(){
 	menuBtn.toggleClass('active-menu-btn');
 
-	menuIcon.velocity({rotateZ:'90deg', top:10},{easing: bezierCurve, duration:tweenDuration,
-		complete: function(){
-			midLine.velocity({left:-30,opacity:0},{duration:tweenDuration, delay:delayDuration,
-				complete:function(){
-					menuIcon.velocity({top:12},{duration:tweenDuration, delay: delayDuration});
-					topLine.velocity({rotateZ:'45deg'},{duration:tweenDuration, delay:delayDuration});
-					bottomLine.velocity({rotateZ:'-45deg'},{duration:tweenDuration, delay:delayDuration});
-					navListItems.velocity({opacity:1},{duration: tweenDuration, visibility: 'visible'});
-				}
-			});
-		}
-	});
+	TweenLite.to('#top',0.8,{drawSVG:"27 94%",delay:0.1});
+  TweenLite.to('#mid',0.5,{opacity: 1, drawSVG:"100% 100%",delay:0});
+  TweenLite.to('#bottom',0.8,{drawSVG:"27 94%",delay:0.3});
+  navListItems.velocity({opacity:1},{duration: tweenDuration, visibility: 'visible'});
+
+	// menuIcon.velocity({rotateZ:'90deg', top:10},{easing: bezierCurve, duration:tweenDuration,
+	// 	complete: function(){
+	// 		midLine.velocity({left:-30,opacity:0},{duration:tweenDuration, delay:delayDuration,
+	// 			complete:function(){
+	// 				menuIcon.velocity({top:12},{duration:tweenDuration, delay: delayDuration});
+	// 				topLine.velocity({rotateZ:'45deg'},{duration:tweenDuration, delay:delayDuration});
+	// 				bottomLine.velocity({rotateZ:'-45deg'},{duration:tweenDuration, delay:delayDuration});
+	// 			}
+	// 		});
+	// 	}
+	// });
 }
 
 function animateToBurger(){
 	menuBtn.toggleClass('active-menu-btn');
-	// navListItems.each(function(i){
-	// 	var el = $(this);
-	// 	el.velocity({opacity:0, left: -50},{duration: tweenDuration, delay: i * 150});
-	// });
-	navListItems.velocity({opacity:0},{duration: tweenDuration, visibility: 'hidden'});
+  TweenLite.to('#top',0.8,{drawSVG:"0 14"});
+  TweenLite.to('#mid',0.8,{opacity: 1, drawSVG:"0% 100%",delay:0.3});
+  TweenLite.to('#bottom',0.8,{drawSVG:"0 14"});
 
-	topLine.velocity({rotateZ:'0deg'},{duration:tweenDuration, delay: 300});
-	bottomLine.velocity({rotateZ:'0deg'},{duration:tweenDuration, delay: 300});
-	menuIcon.velocity({top:10},{duration:tweenDuration, delay: 300,
-		complete: function(){
-			midLine.velocity({left:0, opacity:1},{ easing: [500,30], delay: delayDuration,
-				begin: function(){
-					menuBtn.velocity({top:6},{duration:100, loop: 1});
-				},
-				complete: function(){
-					menuIcon.velocity({rotateZ:'0deg', top:7},{easing: bezierCurve, delay: delayDuration});
-				}
-			});
-		}
-	});
+
+
+	navListItems.velocity({opacity:0},{duration: tweenDuration, visibility: 'hidden'});
 }
 menuBtn.click(function() {
 	var btn = $(this);
@@ -440,7 +504,6 @@ $('nav ul > li > a').click(function(e) {
 if ( activeCircle.hasClass('active-nav-link') ){
 
 } else {
-	animateToBurger();
 	list.find('.active-nav-link').removeClass('active-nav-link');
 	activeCircle.toggleClass('active-nav-link');
 	link.toggleClass('active-nav-link');

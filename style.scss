@@ -6,6 +6,9 @@ $body-font-size:16px;
 $body-lh: 22px;
 $white: #333;
 $white-inverse: #fff;
+$link-color:#42A5F5;
+$link-color-visited:#1E88E5;
+
 
 body, html{
 	width: 100%;
@@ -61,6 +64,18 @@ p, .email-address{
 .col{
 	vertical-align: middle;
     // outline: 1px solid #333;
+ }
+
+ a{
+ 	color: $link-color;
+ 	opacity: 0.7;
+ 	transition: 0.3s opacity;
+ 	&:hover{
+		opacity: 1;
+ 	}
+ 	&:visited{
+ 		color: $link-color-visited;
+ 	}
  }
 
 
@@ -222,6 +237,7 @@ p, .email-address{
  				}
  			}
  			a{
+ 				color: $white !important;
  				font-size: $h2-font-size;
  				letter-spacing: 2px;
  				opacity: 0.5;
@@ -295,7 +311,7 @@ p, .email-address{
 		position: relative;
 		opacity: 0.8;
 		transition:0.3 opacity;
-		max-width: 200px;
+		max-width: 300px;
 		overflow: hidden;
 		&:hover{
 			opacity: 1;
@@ -326,13 +342,15 @@ p, .email-address{
 	}
 	.media-container{
 		width: 90%;
-		height: 300px;
-		border: 1px solid $white;
-		margin: 24px 0px 12px 0px;
+		height: 320px;
+		//border: 1px solid $white;
+		margin: 0px 0px 12px 0px;
+		//text-align: center;
 		background-size: contain !important;
 		.video-container{
 			width: 100%;
 			height: 100%;
+			margin: 0 auto;
 		}
 	}
 	.media-info{
@@ -340,9 +358,11 @@ p, .email-address{
 		border-spacing: 0px;
 		height: 30px;
 		position: relative;
+		margin-top: 32px;
+  		margin-bottom: 10px;
 			.thumbnail-list{  // 1st column
 				color:$white;
-				width: 80%;
+				width: 100%;
 				li{
 					display: inline-block;
 					margin-right: 10px;
@@ -375,8 +395,10 @@ p, .email-address{
 				text-align: right;
 				height: 35px;
 				line-height: 35px;
-
-				//position: absolute;
+				top:-38px;
+				font-style: italic;
+				left:0px;
+				position: absolute;
 					font-size: $h2-font-size;
 					font-weight: 100;
 					display: block;
@@ -385,7 +407,7 @@ p, .email-address{
 
 		.project-text{
 			width: 90%;
-			padding: 30px 0px 0px 0px;
+			padding: 10px 0px 0px 0px;
 			p{
 				color:$white;
 				font-size: $body-font-size;
@@ -407,7 +429,7 @@ p, .email-address{
 }
 
 #everlane-media{
-	background: url(../img/4.jpg);
+	//background: url(../img/4.jpg);
 }
 
 #everlane-list{
@@ -578,12 +600,12 @@ p, .email-address{
 	}
 	.menu-icon{
 		//background: #ccc;
-		width:14px;
-		height: 14px;
-		top:7px;
+		width:20px;
+		height: 17px;
+		top:9px;
 		display: inline-block;
 		position: absolute;
-		right: 38px;
+		right: 32px;
 		line-height: 0px;
 		.menu-line{
 			height: 1px;
@@ -613,6 +635,97 @@ p, .email-address{
 
 
 
+.external-link-heading, .info-heading{
+			font-family: $sans-serif-family;
+			font-size: $h1-font-size;
+			letter-spacing: 1px;
+			margin-bottom: 12px;
+		}
+	.info-heading{
+	margin-top: 10px;
+	//margin-bottom: 10px;
+}
 
 
+	 		.work-btn-list{
+	 			list-style: none;
+	 			text-indent: 0px;
+	 			margin: 0px;
+	 			padding: 0px;
+	 			// & li:last-child{
+	 			// 	margin-bottom: 0px !important;
+	 			// }
+	 			li{
+	 				text-align: left;
+	 				margin: 0px;
+	 				padding: 0px;
+	 				height: 30px;
+	 				line-height: 28px;
+	 				text-indent: 0px;
+	 				border:1px solid #ccc;
+	 				border-radius: 6px;
+	 				margin-bottom: 10px;
+	 				position: relative;
+	 				overflow: hidden;
+	 				display: inline-block;
+	 				margin-right: 10px;
+	 				background: #fff;
+	 			}
+	 			//.btn-li{.btn-text{position: relative; top:-2px;}}
+	 			//.btn-cv{.btn-text{position: relative; top:-2px;}}
+	 			.btn-text{
+	 				padding: 0px 20px;
+	 				display: inline-block;
+	 				font-size: 14px;
+	 				&:hover{
+	 					cursor: pointer;
+	 				}
+	 			}
 
+	 			.hidden-btn{
+	 				transform-origin: center left;
+	 				display: inline-block;
+	 				right:0px;
+	 				top:0px;
+	 				text-align: center;
+	 				padding: 0px 20px;
+	 				box-sizing: border-box !important;
+	 				border-left:1px solid #ccc;
+	 				color: $white;
+	 				opacity: 0.4;
+	 				height: 28px;
+	 			}
+	 			.fa-external-link{
+	 				color: $white;
+	 				position: relative;
+	 				text-align: center;
+	 				line-height: 28px;
+	 				top:2px;
+	 				transition: 0.3s background;
+	 				&:hover{
+	 					background: #eee;
+					//color:#fff;
+				}
+			}
+		}
+
+		#scoot, #revolver, #muni{
+			.media-info{
+				margin: 0;
+				h2{
+					top:-15px;
+				}
+			}
+		}
+
+		.quote-block{
+			border-left:1px solid #ccc;
+			padding-left: 20px;
+		}
+		.quote{
+			font-size:13px !important;
+			//font-style: italic;
+			//padding-left: 20px;
+			//font-weight: 100 !important;
+			line-height: 20px !important;
+		}

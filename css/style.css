@@ -46,6 +46,15 @@ p, .email-address {
 .col {
   vertical-align: middle; }
 
+a {
+  color: #42A5F5;
+  opacity: 0.7;
+  transition: 0.3s opacity; }
+  a:hover {
+    opacity: 1; }
+  a:visited {
+    color: #1E88E5; }
+
 .col-container {
   height: 100%;
   max-width: 1200px;
@@ -167,6 +176,7 @@ nav {
           cursor: default !important;
           border-color: rgba(30, 30, 30, 0.1) !important; }
       nav ul li a {
+        color: #333 !important;
         font-size: 15px;
         letter-spacing: 2px;
         opacity: 0.5;
@@ -217,7 +227,7 @@ nav {
   position: relative;
   opacity: 0.8;
   transition: 0.3 opacity;
-  max-width: 200px;
+  max-width: 300px;
   overflow: hidden; }
   .work-item .work-visible-section:hover {
     opacity: 1;
@@ -243,22 +253,24 @@ nav {
 
 .work-item .media-container {
   width: 90%;
-  height: 300px;
-  border: 1px solid #333;
-  margin: 24px 0px 12px 0px;
+  height: 320px;
+  margin: 0px 0px 12px 0px;
   background-size: contain !important; }
   .work-item .media-container .video-container {
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    margin: 0 auto; }
 
 .work-item .media-info {
   width: 90%;
   border-spacing: 0px;
   height: 30px;
-  position: relative; }
+  position: relative;
+  margin-top: 32px;
+  margin-bottom: 10px; }
   .work-item .media-info .thumbnail-list {
     color: #333;
-    width: 80%; }
+    width: 100%; }
     .work-item .media-info .thumbnail-list li {
       display: inline-block;
       margin-right: 10px; }
@@ -284,13 +296,17 @@ nav {
     text-align: right;
     height: 35px;
     line-height: 35px;
+    top: -38px;
+    font-style: italic;
+    left: 0px;
+    position: absolute;
     font-size: 15px;
     font-weight: 100;
     display: block; }
 
 .work-item .project-text {
   width: 90%;
-  padding: 30px 0px 0px 0px; }
+  padding: 10px 0px 0px 0px; }
   .work-item .project-text p {
     color: #333;
     font-size: 16px;
@@ -305,9 +321,6 @@ nav {
 #e1 {
   height: auto;
   overflow: visible; }
-
-#everlane-media {
-  background: url(../img/4.jpg); }
 
 #everlane-list li:first-child {
   background: url(../img/1.jpg); }
@@ -458,12 +471,12 @@ nav {
     position: relative;
     top: 2px; }
   .menu-btn .menu-icon {
-    width: 14px;
-    height: 14px;
-    top: 7px;
+    width: 20px;
+    height: 17px;
+    top: 9px;
     display: inline-block;
     position: absolute;
-    right: 38px;
+    right: 32px;
     line-height: 0px; }
     .menu-btn .menu-icon .menu-line {
       height: 1px;
@@ -481,3 +494,73 @@ nav {
 
 .active-menu-btn {
   opacity: 1; }
+
+.external-link-heading, .info-heading {
+  font-family: "franklin-gothic-urw", serif;
+  font-size: 22px;
+  letter-spacing: 1px;
+  margin-bottom: 12px; }
+
+.info-heading {
+  margin-top: 10px; }
+
+.work-btn-list {
+  list-style: none;
+  text-indent: 0px;
+  margin: 0px;
+  padding: 0px; }
+  .work-btn-list li {
+    text-align: left;
+    margin: 0px;
+    padding: 0px;
+    height: 30px;
+    line-height: 28px;
+    text-indent: 0px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    margin-right: 10px;
+    background: #fff; }
+  .work-btn-list .btn-text {
+    padding: 0px 20px;
+    display: inline-block;
+    font-size: 14px; }
+    .work-btn-list .btn-text:hover {
+      cursor: pointer; }
+  .work-btn-list .hidden-btn {
+    transform-origin: center left;
+    display: inline-block;
+    right: 0px;
+    top: 0px;
+    text-align: center;
+    padding: 0px 20px;
+    box-sizing: border-box !important;
+    border-left: 1px solid #ccc;
+    color: #333;
+    opacity: 0.4;
+    height: 28px; }
+  .work-btn-list .fa-external-link {
+    color: #333;
+    position: relative;
+    text-align: center;
+    line-height: 28px;
+    top: 2px;
+    transition: 0.3s background; }
+    .work-btn-list .fa-external-link:hover {
+      background: #eee; }
+
+#scoot .media-info, #revolver .media-info, #muni .media-info {
+  margin: 0; }
+  #scoot .media-info h2, #revolver .media-info h2, #muni .media-info h2 {
+    top: -15px; }
+
+.quote-block {
+  border-left: 1px solid #ccc;
+  padding-left: 20px; }
+
+.quote {
+  font-size: 13px !important;
+  line-height: 20px !important; }

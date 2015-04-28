@@ -21,10 +21,14 @@
 	<script src="bower_components/paper/dist/paper-full.min.js"></script>
 	<script type="text/paperscript" canvas="bg-image" src="js/loading.js"></script>
 	<script src="bower_components/typed.js/dist/typed.min.js"></script>
-	<script type="text/javascript"></script>
+	
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
+
+	<!-- GSAP assets -->
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+	<script type="text/javascript" src="js/DrawSVGPlugin.min.js"></script>
 
 	<!-- load typekit fonts -->
 	<script src="//use.typekit.net/haj7dxh.js"></script>
@@ -48,11 +52,15 @@
 			</div>
 			<div class="menu-btn">
 				<span class='menu-text'>Menu</span>
-				<span class="menu-icon">
-					<span class='menu-line top-line'></span>
-					<span class='menu-line mid-line'></span>
-					<span class='menu-line bottom-line'></span>
-				</span>
+				<div class="menu-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="19.5px" height="16.25px" viewBox="0 0 19.5 16.25" enable-background="new 0 0 19.5 16.25" xml:space="preserve">
+
+					<path id="top" fill="none" stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M0.719 3.969h13.926 h1.963c1.084 0 1.961-0.443 1.961-1.526c0-1.084-0.902-1.745-1.961-1.745s-1.898 1.076-3.992 3.2 c-2.094 2.095-9.834 9.419-9.834 9.4"/>
+					<path id="mid" fill="none" stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M0.785 8.206h13.859 "/>
+					<path id="bottom" fill="none" stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M0.719 12 h14.143h1.961c1.084 0 2 0.6 2 1.72c0 1.084-0.904 1.843-1.963 1.843s-1.896-1.027-3.99-3.122S2.89 2.8 2.9 2.8"/>
+
+				</svg>
+				</div>
 			</div>
 			<ul>
 				<li><span class="fa fa-circle menu-circle active-nav-link"></span><a href="index.html" class="active-nav-link" data-link="home">Home</a></li>
