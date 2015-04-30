@@ -82,7 +82,8 @@ a {
 
 .go-back-btn {
   position: absolute;
-  top: -56px;
+  left: -110px;
+  top: 6px;
   opacity: 0;
   visibility: hidden;
   transition: 0.3s background; }
@@ -95,7 +96,7 @@ a {
 nav {
   color: #333;
   padding-left: 40px;
-  width: 40%; }
+  width: 35%; }
   nav h1 {
     font-size: 22px;
     font-family: "franklin-gothic-urw", serif;
@@ -156,8 +157,13 @@ nav {
       -ms-transform-origin: right top;
       -webkit-transform-origin: right top;
       transform-origin: right top; }
+  nav .nav-container {
+    position: relative; }
   nav ul {
-    list-style: none; }
+    list-style: none;
+    position: absolute;
+    top: 0px;
+    left: 0px; }
     nav ul li {
       margin-bottom: 14px;
       position: relative;
@@ -221,7 +227,8 @@ nav {
   padding-left: 30px;
   width: 100%;
   height: auto;
-  position: relative; }
+  position: relative;
+  margin: 30px auto; }
 
 .work-item .work-visible-section {
   position: relative;
@@ -296,8 +303,7 @@ nav {
     text-align: right;
     height: 35px;
     line-height: 35px;
-    top: -38px;
-    font-style: italic;
+    top: -34px;
     left: 0px;
     position: absolute;
     font-size: 15px;
@@ -455,12 +461,12 @@ nav {
   margin-bottom: 20px; }
 
 .menu-btn {
+  opacity: 0;
   width: 100px;
   overflow: hidden;
   margin-bottom: 14px;
   position: relative;
   border-radius: 2px;
-  opacity: 0.4;
   transition: opacity 0.3s; }
   .menu-btn .menu-text {
     letter-spacing: 1px;
@@ -490,18 +496,20 @@ nav {
       transform-origin: left center; }
   .menu-btn:hover {
     cursor: pointer;
-    opacity: 1; }
+    opacity: 1 !important; }
 
 .external-link-heading, .info-heading {
   font-family: "franklin-gothic-urw", serif;
   font-size: 22px;
   letter-spacing: 1px;
-  margin-bottom: 12px; }
+  margin-bottom: 12px;
+  display: none; }
 
 .info-heading {
   margin-top: 10px; }
 
 .work-btn-list {
+  display: none;
   list-style: none;
   text-indent: 0px;
   margin: 0px;
@@ -561,3 +569,12 @@ nav {
 .quote {
   font-size: 13px !important;
   line-height: 20px !important; }
+
+.title-link {
+  text-decoration: none;
+  position: relative;
+  left: 2px; }
+  .title-link span {
+    position: relative;
+    top: 1px;
+    left: 2px; }

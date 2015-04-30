@@ -20,76 +20,171 @@
 		}
 
 
+
 // function delegateStuff(href){
 $(document).ajaxSuccess(function(a,b,obj) {
-	var otherSections;
+	console.log(obj.url)
+	var ajaxURL = obj.url
 	var hiddenSection;
-	var hiddenSections;
 	//var objUrl = obj.url;
 
-		function collapseProjects(activeSection, btn){
-			hiddenSections = activeSection.siblings('.work-hidden-section');
-			otherSections = activeSection.parents('#container').find('.work-visible-section:not(.active-project)');
-			btn.velocity({opacity:0},{duration:300, visibility: 'hidden'});
-			//console.log(hiddenSection);
-			//console.log(otherSections);
-			hiddenSection.velocity({height:0, opacity:0},{duration:300, visibility: 'hidden',
-				complete: function(){
-					activeSection.removeClass('active-project');
-					otherSections.each(function(i){
-						$(this).velocity({height:97, opacity: 1},{duration: 250, visibility: 'visible', delay: 250 * (i+1)});
-					});
-				}
-			});
-		}
+
+		// function collapseProjects(activeSection, btn, event){
+		// 	hiddenSections = activeSection.siblings('.work-hidden-section');
+		// 	otherSections = activeSection.parents('#container').find('.work-visible-section:not(.active-project)');
+		// 	btn.velocity({opacity:0},{duration:300, visibility: 'hidden'});
+		// 	//console.log(hiddenSection);
+		// 	console.log(event);
+		// 	hiddenSection.velocity({height:0, opacity:0},{duration:300, visibility: 'hidden',
+		// 		complete: function(){
+		// 			activeSection.removeClass('active-project');
+		// 			otherSections.each(function(i){
+		// 				$(this).velocity({height:97, opacity: 1},{duration: 250, visibility: 'visible', delay: 250 * (i+1)});
+		// 			});
+		// 		}
+		// 	});
+		// }
+
+		if (ajaxURL === 'work.html'){
+		
 
 		hiddenSection = $('#ajax-content').find('.work-hidden-section');
 		hiddenSection.each(function(){
 			var section = $(this);
+			var clickableParent = section.parent().find('.work-visible-section');
+			var backBtn = clickableParent.parent().find('.go-back-btn');
+			var notActive;
+
+
+
+			// // each && click event for expanding / collapsing element
+				// click a project
+				clickableParent.click(function() {
+					var el = $(this);
+					var sectionID = el.attr('id');
+					var currrentHiddenSection = $(this).parent().find('.work-hidden-section');
+					var sectionHeight;
+					console.log(sectionID);
+					var sectionURL;
+
+					switch (sectionID) {
+						case 'work-everlane':
+							sectionURL = "everlane.html";
+							sectionHeight = 600
+							break;
+						case 'work-scoot':
+							sectionURL = "scoot.html";
+							sectionHeight = 719
+							break;
+						case 'work-revolver':
+							sectionURL = "revolver.html";
+						sectionHeight = 798
+							break;
+						case 'work-muni':
+							sectionURL = "muni.html";
+						sectionHeight = 476
+							break;
+						case 'work-misc':
+							sectionURL = "misc.html";
+						sectionHeight = 512
+							break;
+						default:
+					}
+					el.addClass('active-project');
+					notActive = el.parent().parent().find('.work-visible-section:not(.active-project)');
+					notActive.each(function(i){
+						$(this).velocity({height:0, opacity: 0},{duration:250, delay:250 * i});
+					});
+       			el.siblings('.work-hidden-section').velocity({
+							height:sectionHeight,
+							opacity:1
+						},{
+							duration:500,
+							delay: 1200,
+							visibility: 'visible',
+							complete: function(){
+								backBtn.velocity({opacity:0.3 },{duration: 500, visibility: 'visible', complete: function(){
+									if( currrentHiddenSection.data('loadedAJAX') !== true ){
+											currrentHiddenSection.load(sectionURL + ' .work-ajax-container', function(){
+												//var adjustHeight = el.parent().find('.work-ajax-container').outerHeight();
+												//console.log(adjustHeight);
+												el.siblings('.work-hidden-section').css('height','auto');
+												//el.parent().find('.work-ajax-container').velocity({height:adjustHeight},{duration:300});
+											});
+											currrentHiddenSection.data({loadedAJAX:true});
+									}
+								}
+							});
+							}
+						});
+				}); // end of project click
+
+			backBtn.click(function(){
+				//console.log(clickableParent);
+				//collapseProjects(clickableParent, $(this),e);
+				var otherSections = clickableParent.parents('#container').find('.work-visible-section:not(.active-project)');
+				$(this).velocity({opacity:0},{duration:300, visibility: 'hidden'});
+				section.velocity({height:0, opacity:0},{duration:300, visibility: 'hidden',
+					complete: function(){
+						clickableParent.removeClass('active-project');
+						console.log('asd');
+						otherSections.each(function(i){
+							$(this).velocity({height:97, opacity: 1},{duration: 250, visibility: 'visible', delay: 250 * (i+1)});
+						});
+					}
+				});
+			});
+
+
+
+
+
+	}); // end each hidden section
+
+
+
+// // external links
+// 		$('.work-btn-list .btn-text').each(function(){
+// 			var hiddenEl = $(this).parent().find('.hidden-btn');
+// 			var hiddenWidth = hiddenEl.outerWidth();
+// 			var el = $(this);
+// 			el.data({active:false});
+// 			hiddenEl.velocity({width:0, borderColor: '#fff', padding:0},{duration:0});
+// 			el.click(function() {
+// 				var attribute = $(this).parent().attr('class');
+// 				if (el.data('active') === false){
+
+// 					if(attribute === 'btn-email'){
+// 						hiddenEl.velocity({width:200, borderColor: '#ccc', paddingRight:20,paddingLeft:20},{duration:500});
+// 						$('.email-address').typed({
+// 							strings: ["mattwujek@gmail.com"],
+// 							contentType: 'html',
+// 							typeSpeed: 50,
+// 							showCursor: false
+// 						});
+// 					} else {
+// 						bounceEl($(this),'padding-right',25,100);
+// 						hiddenEl.velocity({width:hiddenWidth, borderColor: '#ccc', paddingRight:20,paddingLeft:20},{duration:500});
+// 					}
+// 					el.data({active:true});
+// 				} else{
+// 					console.log('shrink');
+// 					hiddenEl.velocity({width:0, borderColor: '#fff', paddingRight:0,paddingLeft:0},{duration:500});
+// 					el.data({active:false});
+// 				}
+// 			});
+// 		});
+
+} else if(ajaxURL !== "work.html" && ajaxURL !== "bio.html"){
+
+			var section = $('#ajax-content').find('.active-project').siblings('.work-hidden-section');
 			var mediaContainer = section.find('.media-container');
 			var video = mediaContainer.find('.video-container iframe');
 			var thumbnailList = section.find('.thumbnail-list');
 			var thumbnail = thumbnailList.find('li.img-thumbnail');
 			var imageTitle = section.find('.image-title');
 			var imageTitleHover = section.find('.img-thumbnail-hover');
-			var clickableParent = section.parent().find('.work-visible-section');
-			var backBtn = clickableParent.parent().find('.go-back-btn');
 
-
-			// each && click event for expanding / collapsing element
-			clickableParent.each(function(){
-				var el = $(this);
-
-				// click a project
-				el.click(function() {
-					el.addClass('active-project');
-					var notActive = el.parent().parent().find('.work-visible-section:not(.active-project)');
-					notActive.each(function(i){
-						$(this).velocity({height:0, opacity: 0},{duration:250, delay:250 * i});
-					});
-					el.siblings('.work-hidden-section').velocity({
-						opacity:1,
-						height:830
-					},{
-						duration:500,
-						delay: 1200,
-						visibility: 'visible',
-						complete: function(){
-							backBtn.velocity({
-								opacity:0.3
-							},{
-								duration: 500,
-								visibility: 'visible'
-							});
-						}
-					});
-				});
-			}); // end of project click
-
-			backBtn.click(function(){
-				console.log(clickableParent);
-				collapseProjects(clickableParent, $(this));
-			});
 			// set data for hovering
 			thumbnailList.data({animating: false});
 
@@ -97,20 +192,18 @@ $(document).ajaxSuccess(function(a,b,obj) {
 				var el = $(this);
 				var hoverData = el.attr('text-value');
 				var videoData = el.attr('video-index');
-				//console.log(imageData);
 				el.hover(function() {
 					if ( $(this).hasClass('active-thumbnail') ){
 						imageTitle.velocity({left:14},{duration:100, loop:1});
-						//console.log();
 					} else {
 						if ( thumbnailList.data('animating') === true){
 							imageTitleHover.velocity("stop", true).velocity('reverse',{ duration:0});
 							thumbnailList.data({animating:false});
 						} else {
 							thumbnailList.data({animating:true});
-							imageTitleHover.velocity({opacity:1},{duration:300,
+							imageTitleHover.velocity({opacity:0.4},{duration:300,
 								begin:function(){
-									imageTitleHover.text(hoverData);
+									imageTitleHover.html(hoverData);
 								},
 								complete: function(){
 									thumbnailList.data({animating:false});
@@ -137,37 +230,49 @@ $(document).ajaxSuccess(function(a,b,obj) {
 					}
 				});
 
+
 //video data
 
 var videoString;
 switch (videoData) {
 						case 'e1':
-							videoString = "https://www.youtube.com/embed/obox5-IxFH8?rel=0&amp;showinfo=0";
+							videoString = "https://www.youtube.com/embed/o_9MeMma0jA?rel=0&amp;showinfo=0";
 							break;
 						case 'e2':
-							videoString = "https://www.youtube.com/embed/a-XPAfXo1Cs?rel=0&amp;showinfo=0";
+							videoString = "https://www.youtube.com/embed/kwMT3kOMmLI?rel=0&amp;showinfo=0";
 							break;
 						case 'e3':
-							videoString = "https://www.youtube.com/embed/P0-ZKaWVYSk?rel=0&amp";
+							videoString = "https://www.youtube.com/embed/1V9a3PfBnj4?rel=0&amp;showinfo=0";
 							break;
 						case 'e4':
-							videoString = "https://www.youtube.com/watch?v=a-XPAfXo1Cs";
-							break;
-						case 'e5':
-							videoString = "https://www.youtube.com/watch?v=KXUiiMe-2C0";
-							break;
-						case 's1':
-							videoString = "asdasd";
-							break;
-						case 's2':
-							videoString = "asdasd";
-							break;
-						case 's3':
-							videoString = "asdasd";
+							videoString = "https://www.youtube.com/embed/no36AIBt_WI?rel=0&amp;showinfo=0";
 							break;
 						default:
 					}
 el.click(function() {
+	var videoData = el.attr('video-index');
+	var youtubeHref;
+
+							//set strings for external links
+			switch (videoData) {
+						case 'e1':
+							youtubeHref = "https://www.youtube.com/watch?v=obox5-IxFH8";
+							break;
+						case 'e2':
+							youtubeHref = "https://www.youtube.com/watch?v=a-XPAfXo1Cs";
+							break;
+						case 'e3':
+							youtubeHref = "https://www.youtube.com/watch?v=P0-ZKaWVYSk";
+							break;
+						case 'e4':
+							youtubeHref = "https://www.youtube.com/watch?v=obox5-IxFH8";
+							break;
+						case 'e5':
+							youtubeHref = "https://www.youtube.com/watch?v=a-XPAfXo1Cs";
+							break;
+						default:
+					}
+				var externalLinkHTML = '<a class="title-link" target="_blank" href="' + youtubeHref + '">External Link <span class="external-btn fa fa-external-link"></span></a>'
 	if ( $(this).hasClass('active-thumbnail') ){
 	} else {
 		thumbnailList.find('.active-thumbnail').removeClass('active-thumbnail');
@@ -176,7 +281,7 @@ el.click(function() {
 			begin: function(){
 				imageTitleHover.velocity({opacity:0},{duration:300});
 				imageTitle.velocity({opacity:0},{duration:200,complete:function(){
-					imageTitle.text(hoverData);
+					imageTitle.html(hoverData + ' ' + externalLinkHTML);
 				}
 			}).velocity({opacity:1},{duration:300,delay:800});
 			},
@@ -189,41 +294,8 @@ el.click(function() {
 
 				}); // end click
 			}); // end each thumbnail
-	}); // end each hidden section
 
-
-
-// external links
-		$('.work-btn-list .btn-text').each(function(){
-			var hiddenEl = $(this).parent().find('.hidden-btn');
-			var hiddenWidth = hiddenEl.outerWidth();
-			var el = $(this);
-			el.data({active:false});
-			hiddenEl.velocity({width:0, borderColor: '#fff', padding:0},{duration:0});
-			el.click(function() {
-				var attribute = $(this).parent().attr('class');
-				if (el.data('active') === false){
-
-					if(attribute === 'btn-email'){
-						hiddenEl.velocity({width:200, borderColor: '#ccc', paddingRight:20,paddingLeft:20},{duration:500});
-						$('.email-address').typed({
-							strings: ["mattwujek@gmail.com"],
-							contentType: 'html',
-							typeSpeed: 50,
-							showCursor: false
-						});
-					} else {
-						bounceEl($(this),'padding-right',25,100);
-						hiddenEl.velocity({width:hiddenWidth, borderColor: '#ccc', paddingRight:20,paddingLeft:20},{duration:500});
-					}
-					el.data({active:true});
-				} else{
-					console.log('shrink');
-					hiddenEl.velocity({width:0, borderColor: '#fff', paddingRight:0,paddingLeft:0},{duration:500});
-					el.data({active:false});
-				}
-			});
-		});
+} else {
 // bio section
 // bio
 		//var bioBtns = $();
@@ -301,6 +373,8 @@ el.click(function() {
 			});
 		}); // end of go-back btn for bio profile picture
 
+	}
+
 }); // end of ajax
 
 
@@ -312,12 +386,14 @@ $(document).ready(function(){
 	var middleCol = $('.middle-col');
 	//once
 	ajaxContent.data({state:'empty', active: false});
-
+	TweenLite.to('#top',0,{drawSVG:"0 14"});
+  TweenLite.to('#bottom',0,{drawSVG:"0 14"});
+  $('.menu-btn').velocity({opacity:0.4},{duration:300,visibility:'visible'});
 
 		
 
 
-function sectionAnimation(state, href, level){
+function sectionAnimation(state, href){
 		var loadingCircle = $('.loading-circle');
 		var loadingCircleContent = loadingCircle.find('span');
 		var line = $('.indicator-line');
@@ -330,8 +406,8 @@ function sectionAnimation(state, href, level){
 		  middleCol.velocity({scaleY:0},{duration:0});
 			// load ajax stuffs
 		  $('#container').remove(); // Remove old content
+		  //console.log(href + ' #container')
 		  $('#ajax-content').load(href + ' #container');
-		  setTimeout(function(){
 		  	console.log('only at BEGIN');
 		  	line.velocity({width:'90%'},{easing:'ease-out',duration:500, delay: 500,
 		  	complete: function(){
@@ -346,7 +422,6 @@ function sectionAnimation(state, href, level){
 		  	}
 		  });
 
-		  },500);
 
 		  ajaxContent.data({state: href});
 
@@ -438,61 +513,47 @@ function sectionAnimation(state, href, level){
 // nav btn
 
 var menuBtn = $('.menu-btn');
-var menuIcon = menuBtn.find('.menu-icon');
-var topLine = menuBtn.find('.top-line');
-var midLine = menuBtn.find('.mid-line');
 var bottomLine = menuBtn.find('.bottom-line');
 var tweenDuration = 300;
-var delayDuration = 200;
-var bezierCurve = [0.89,0.06,0.69,0.97];
 var navListItems = $('nav ul li');
 
 
 
-var topMenu = $('#top');
-var midMenu = $('#mid');
-var botMenu = $('#bottom');
-
-$(function(){
-  TweenLite.to('#top',0,{drawSVG:"0 14"});
-  TweenLite.to('#bottom',0,{drawSVG:"0 14"});
-});
-
-$("#tweenBox").click(function(){
-  if(!tween.isActive()){
-    //only reverse the direction if the tween is not active
-    tween.reversed(!tween.reversed())
-  }
-})
-
-var moveTop = TweenLite.to('#top',0.8,{drawSVG:"27 94%",delay:0.1, ease: Back.easeInOut.config(1.5)}).reverse();;
-var moveMid = TweenLite.to('#mid',0.5,{opacity: 1, drawSVG:"100% 100%", ease: Back.easeInOut.config(1.5)}).reverse();;
+var moveTop = TweenLite.to('#top',0.8,{drawSVG:"27 94%",delay:0.1, ease: Back.easeInOut.config(1.5)}).reverse();
+var moveMid = TweenLite.to('#mid',0.5,{opacity: 1, drawSVG:"100% 100%", ease: Back.easeInOut.config(1.5)}).reverse();
 var moveBot = TweenLite.to('#bottom',0.8,{drawSVG:"27 94%",delay:0.3, ease: Back.easeInOut.config(1.5)}).reverse();
 
 function animateToCross(){
 	menuBtn.toggleClass('active-menu-btn');
 	if(!moveTop.isActive()){
-		moveTop.reversed(!moveTop.reversed())
-		moveMid.reversed(!moveMid.reversed())
-		moveBot.reversed(!moveBot.reversed())
+		moveTop.reversed(!moveTop.reversed());
+		moveMid.reversed(!moveMid.reversed());
+		moveBot.reversed(!moveBot.reversed());
+		navListItems.each(function(i){
+  	$(this).velocity({opacity:1},{duration: tweenDuration, visibility: 'visible', delay: i * (tweenDuration - 100)});
+  });
 	}
-  navListItems.velocity({opacity:1},{duration: tweenDuration, visibility: 'visible'});
 }
 
 function animateToBurger(){
 	menuBtn.toggleClass('active-menu-btn');
   if(!moveTop.isActive()){
-		moveTop.reversed(!moveTop.reversed())
+		moveTop.reversed(!moveTop.reversed());
 		setTimeout(function(){
-			moveMid.reversed(!moveMid.reversed())
+			moveMid.reversed(!moveMid.reversed());
 		},300);
-		moveBot.reversed(!moveBot.reversed())
+		moveBot.reversed(!moveBot.reversed());
+		navListItems.each(function(i){
+  	$(this).velocity({opacity:0},{duration: tweenDuration, visibility: 'visible', delay: i * (tweenDuration - 100)});
+  	});
 	}
-
-
-
-	navListItems.velocity({opacity:0},{duration: tweenDuration, visibility: 'hidden'});
 }
+
+
+
+
+// 	navListItems.velocity({opacity:0},{duration: tweenDuration, visibility: 'hidden'});
+// }
 menuBtn.click(function() {
 	var btn = $(this);
 	if (btn.hasClass('active-menu-btn') ){

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Matt Wujek" />
+	<meta name="keywords" content="Matt Wujek graphic design student San Francisco Walla interaction web ux user experience"/>
+	<meta name="description" content="Portfolio of Matt Wujek, interaction designer residing in San Francisco."/>
+	<meta property="og:title" content="Matt Wujek &equiv; Portfolio" />
+	<meta property="og:url" content="http://www.mattwujek.com/" />
+	<meta property="og:image" content="http://mattwujek.com/fb.png"/>
+	<meta property="og:site_name" content="Matt Wujek &equiv; Portfolio"/>
+	<meta property="og:type"   content="website" />
+
+	<link href='img/icon.ico' rel='shortcut icon' type='image/ico'>
+
+	<title>Ungrid Template</title>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="bower_components/velocity/velocity.min.js"></script>
+	<script src="bower_components/paper/dist/paper-full.min.js"></script>
+	<!--<script type="text/paperscript" canvas="bg-image" src="js/loading.js"></script>-->
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- load typekit fonts -->
+	<script src="//use.typekit.net/haj7dxh.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script>
+
+
+
+
+</head>
+<body>
+
+	<div class="work-hidden-section">
+		<div class="work-ajax-container">
+			<div class="media-container" id="muni-media">
+				<div class="video-container">
+					<iframe width="420" height="315" src="https://www.youtube.com/embed/fr4ySKIgtsQ" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+			<div class="media-info row">
+				<h2 class="col image-title">MuniDaily Website</h2> <!-- end of col -->
+			</div> <!-- end of media info -->
+
+			<h1 class="external-link-heading">External Links</h1>
+			<ul class="work-btn-list col">
+				<li class="btn-li"><span class="btn-text">MuniDaily Website</span><a target="_blank" href="https://www.linkedin.com/in/mattwujek"><span class="hidden-btn fa fa-external-link"></span></a></li>
+
+			</ul>
+			<h1 class="info-heading">Project Info</h1>
+			<div class="project-text">
+				<p>During my last semester at University of San Francisco, I enrolled in an elective course in Data Visualization taught by the accomplished and code artist, <a href="http://alignedleft.com/" target="_blank">Scott Murray</a>. For one of our projects, we were asked to find interesting data related to the bay area. After analyzing the data, Scott asked us to create a visualization that told a story about our observations. During my first few years at USF, I used public transportation exclusively to travel everywhere in the city. I quickly discovered that during certain hours, some bus lines were painfully slow. I decided that looking into the bus schedules could reveal a lot of interesting information; therefore, I grabbed the SFMTA bus schedule on <a href="https://data.sfgov.org/" target="_blank">SF OpenData</a> and found that many lines had integrated delays during peak hours. Even with sophisticated data tools like Tableau, it was difficult to compare and contrast the thousands of daily trips over the most popular routes. I complied all of the data and made an interactive visualization that shows the differences in route durations throughout the any given weekday. Rather than animate each trip relative to the departure time, I decided to animate them all at once so you can instantly see the range and variance in the trip duration of each route. As this was my first joust with <a href="http://d3js.org/D3.js" target="_blank">D3.js</a>, there were several features that I hasn’t able to produce, such as color scales. Ideally, I would have liked to display the slowest bus in each route as a red dot. Instead, the color scale is a derivative value based on the range in ALL routes, rather than individual routes. I believe this would greatly enhance the visualization and I would like to revisit this when I develop my D3 skills.</p>
+
+				<p>In conclusion, I believe this project was an interesting data exploration and I look forward to publishing my latest D3 project with my favorite shared transportation company, Scoot Networks.</p>
+
+			</div>
+		</div> <!-- end of hidden section ajax container -->
+	</div> <!-- end of hidden section -->
+
+
+</body>
+</html>

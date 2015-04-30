@@ -18,6 +18,9 @@ body, html{
 	font-family: $sans-serif-family;
 }
 
+// .work-ajax-container{
+// 	opacity: 0;
+// }
 
 /* ungrid.css (97 bytes minified) */
 @media (min-width: 30em) {
@@ -111,7 +114,8 @@ p, .email-address{
 
  .go-back-btn{
  	position: absolute;
- 	top: -56px;
+ 	left: -110px;
+ 	top: 6px;
  	opacity: 0;
  	visibility: hidden;
  	transition: 0.3s background;
@@ -134,7 +138,7 @@ p, .email-address{
  nav{
  	color: $white;
  	padding-left: 40px;
- 	width: 40%;
+ 	width: 35%;
 
  	h1{
  		font-size: $h1-font-size;
@@ -212,10 +216,12 @@ p, .email-address{
 
  		}
  	}
-
+.nav-container{position: relative;}
  	ul{
  		list-style: none;
- 		//display: none;
+ 		position: absolute;
+ 		top:0px;
+ 		left:0px;
  		li{
  			margin-bottom: 14px;
  			position: relative;
@@ -303,6 +309,7 @@ p, .email-address{
 		width: 100%;
 		height:auto;
 		position: relative;
+		margin: 30px auto;
 }
 
 
@@ -395,8 +402,8 @@ p, .email-address{
 				text-align: right;
 				height: 35px;
 				line-height: 35px;
-				top:-38px;
-				font-style: italic;
+				top:-34px;
+				//font-style: italic;
 				left:0px;
 				position: absolute;
 					font-size: $h2-font-size;
@@ -580,13 +587,13 @@ p, .email-address{
 
 // menu button
 .menu-btn{
+	opacity: 0;
 	width: 100px;
 	overflow: hidden;
 	margin-bottom: 14px;
 	position: relative;
 	//border: 1px solid $white;
 	border-radius: 2px;
-	opacity: 0.4;
 	transition: opacity 0.3s;
 	.menu-text{
 		letter-spacing: 1px;
@@ -622,7 +629,7 @@ p, .email-address{
 	}
 	&:hover{
 		cursor: pointer;
-		opacity: 1;
+		opacity: 1 !important;
 
 	}
 }
@@ -640,6 +647,7 @@ p, .email-address{
 			font-size: $h1-font-size;
 			letter-spacing: 1px;
 			margin-bottom: 12px;
+			display: none;
 		}
 	.info-heading{
 	margin-top: 10px;
@@ -648,6 +656,7 @@ p, .email-address{
 
 
 	 		.work-btn-list{
+	 			display: none;
 	 			list-style: none;
 	 			text-indent: 0px;
 	 			margin: 0px;
@@ -728,4 +737,15 @@ p, .email-address{
 			//padding-left: 20px;
 			//font-weight: 100 !important;
 			line-height: 20px !important;
+		}
+
+		.title-link{
+			text-decoration: none;
+			position: relative;
+			left:2px;
+			span{
+				position: relative;
+				top:1px;
+				left: 2px;
+			}
 		}
