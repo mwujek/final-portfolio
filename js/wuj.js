@@ -23,30 +23,11 @@
 
 // function delegateStuff(href){
 $(document).ajaxSuccess(function(a,b,obj) {
-	console.log(obj.url)
-	var ajaxURL = obj.url
+	var ajaxURL = obj.url;
 	var hiddenSection;
-	//var objUrl = obj.url;
 
-
-		// function collapseProjects(activeSection, btn, event){
-		// 	hiddenSections = activeSection.siblings('.work-hidden-section');
-		// 	otherSections = activeSection.parents('#container').find('.work-visible-section:not(.active-project)');
-		// 	btn.velocity({opacity:0},{duration:300, visibility: 'hidden'});
-		// 	//console.log(hiddenSection);
-		// 	console.log(event);
-		// 	hiddenSection.velocity({height:0, opacity:0},{duration:300, visibility: 'hidden',
-		// 		complete: function(){
-		// 			activeSection.removeClass('active-project');
-		// 			otherSections.each(function(i){
-		// 				$(this).velocity({height:97, opacity: 1},{duration: 250, visibility: 'visible', delay: 250 * (i+1)});
-		// 			});
-		// 		}
-		// 	});
-		// }
 
 		if (ajaxURL === 'work.html'){
-		
 
 		hiddenSection = $('#ajax-content').find('.work-hidden-section');
 		hiddenSection.each(function(){
@@ -64,30 +45,29 @@ $(document).ajaxSuccess(function(a,b,obj) {
 					var sectionID = el.attr('id');
 					var currrentHiddenSection = $(this).parent().find('.work-hidden-section');
 					var sectionHeight;
-					console.log(sectionID);
 					var sectionURL;
 
 					switch (sectionID) {
 						case 'work-everlane':
 							sectionURL = "everlane.html";
-							sectionHeight = 600
+							sectionHeight = 535;
 							break;
 						case 'work-scoot':
 							sectionURL = "scoot.html";
-							sectionHeight = 719
+							sectionHeight = 615;
 							break;
 						case 'work-revolver':
 							sectionURL = "revolver.html";
-						sectionHeight = 798
+						sectionHeight = 670;
 							break;
 						case 'work-muni':
 							sectionURL = "muni.html";
-						sectionHeight = 476
+						sectionHeight = 800;
 							break;
-						case 'work-misc':
-							sectionURL = "misc.html";
-						sectionHeight = 512
-							break;
+						// case 'work-misc':
+						// 	sectionURL = "misc.html";
+						// sectionHeight = 512
+						// 	break;
 						default:
 					}
 					el.addClass('active-project');
@@ -142,38 +122,6 @@ $(document).ajaxSuccess(function(a,b,obj) {
 	}); // end each hidden section
 
 
-
-// // external links
-// 		$('.work-btn-list .btn-text').each(function(){
-// 			var hiddenEl = $(this).parent().find('.hidden-btn');
-// 			var hiddenWidth = hiddenEl.outerWidth();
-// 			var el = $(this);
-// 			el.data({active:false});
-// 			hiddenEl.velocity({width:0, borderColor: '#fff', padding:0},{duration:0});
-// 			el.click(function() {
-// 				var attribute = $(this).parent().attr('class');
-// 				if (el.data('active') === false){
-
-// 					if(attribute === 'btn-email'){
-// 						hiddenEl.velocity({width:200, borderColor: '#ccc', paddingRight:20,paddingLeft:20},{duration:500});
-// 						$('.email-address').typed({
-// 							strings: ["mattwujek@gmail.com"],
-// 							contentType: 'html',
-// 							typeSpeed: 50,
-// 							showCursor: false
-// 						});
-// 					} else {
-// 						bounceEl($(this),'padding-right',25,100);
-// 						hiddenEl.velocity({width:hiddenWidth, borderColor: '#ccc', paddingRight:20,paddingLeft:20},{duration:500});
-// 					}
-// 					el.data({active:true});
-// 				} else{
-// 					console.log('shrink');
-// 					hiddenEl.velocity({width:0, borderColor: '#fff', paddingRight:0,paddingLeft:0},{duration:500});
-// 					el.data({active:false});
-// 				}
-// 			});
-// 		});
 
 } else if(ajaxURL !== "work.html" && ajaxURL !== "bio.html"){
 
@@ -256,23 +204,20 @@ el.click(function() {
 							//set strings for external links
 			switch (videoData) {
 						case 'e1':
-							youtubeHref = "https://www.youtube.com/watch?v=obox5-IxFH8";
+							youtubeHref = "http://share.framerjs.com/lkeu2ptmzog8/";
 							break;
 						case 'e2':
-							youtubeHref = "https://www.youtube.com/watch?v=a-XPAfXo1Cs";
+							youtubeHref = "http://share.framerjs.com/j8ln2wkuv75v/";
 							break;
 						case 'e3':
-							youtubeHref = "https://www.youtube.com/watch?v=P0-ZKaWVYSk";
+							youtubeHref = "http://share.framerjs.com/hzwl2dkuajxa/";
 							break;
 						case 'e4':
-							youtubeHref = "https://www.youtube.com/watch?v=obox5-IxFH8";
-							break;
-						case 'e5':
-							youtubeHref = "https://www.youtube.com/watch?v=a-XPAfXo1Cs";
+							youtubeHref = "http://mattwujek.com/emc/";
 							break;
 						default:
 					}
-				var externalLinkHTML = '<a class="title-link" target="_blank" href="' + youtubeHref + '">External Link <span class="external-btn fa fa-external-link"></span></a>'
+				var externalLinkHTML = '<a class="title-link" target="_blank" href="' + youtubeHref + '">External Link <span class="external-btn fa fa-external-link"></span></a>';
 	if ( $(this).hasClass('active-thumbnail') ){
 	} else {
 		thumbnailList.find('.active-thumbnail').removeClass('active-thumbnail');
@@ -388,8 +333,8 @@ $(document).ready(function(){
 	ajaxContent.data({state:'empty', active: false});
 	TweenLite.to('#top',0,{drawSVG:"0 14"});
   TweenLite.to('#bottom',0,{drawSVG:"0 14"});
-  $('.menu-btn').velocity({opacity:0.4},{duration:300,visibility:'visible'});
-
+  //$('.menu-btn').velocity({opacity:0.4},{duration:300,visibility:'visible'});
+	$('nav').velocity({opacity:1},{duration:500, delay: 500});
 		
 
 
